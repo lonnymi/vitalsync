@@ -3,8 +3,7 @@ const app = express();
 
 // Utilisé par K8s liveness probe et la pipeline CI
 app.get("/health", (req, res) => {
-  res.json({ status: 'ok', version: '2.0', uptime: process.uptime(), timestamp: new Date() });
-
+  res.json({ status: 'ok', source: 'health-monitor', uptime: process.uptime(), timestamp: new Date() });
 // Proxifié depuis nginx : browser → /api/health → nginx → backend /api/health
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", version: "1.1", uptime: process.uptime(), timestamp: new Date() });
