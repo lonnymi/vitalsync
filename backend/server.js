@@ -3,7 +3,7 @@ const app = express();
 
 
 app.get("/health", (req, res) => {
-  res.json({ status: "ok", version: "1.1", uptime: process.uptime(), timestamp: new Date() });
+  res.json({ status: "ok", version: "1.1", timestamp: new Date() });
 });
 
 
